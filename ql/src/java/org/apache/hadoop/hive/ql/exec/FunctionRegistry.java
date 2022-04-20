@@ -586,6 +586,12 @@ public final class FunctionRegistry {
     system.registerGenericUDF(GenericUDFMaskShowLastN.UDF_NAME, GenericUDFMaskShowLastN.class);
     system.registerGenericUDF(GenericUDFMaskHash.UDF_NAME, GenericUDFMaskHash.class);
 
+    // GeoSpatial UDFs
+    system.registerFunction("ST_Length",com.esri.hadoop.hive.ST_Length.class);
+    system.registerFunction("ST_LineString",com.esri.hadoop.hive.ST_LineString.class);
+    system.registerFunction("ST_Point",com.esri.hadoop.hive.ST_Point.class);
+    system.registerFunction("ST_AsBinary",com.esri.hadoop.hive.ST_AsBinary.class);
+    system.registerFunction("ST_AsText",com.esri.hadoop.hive.ST_AsText.class);
     try {
       system.registerGenericUDF("iceberg_bucket",
           (Class<? extends GenericUDF>) Class.forName("org.apache.iceberg.mr.hive.GenericUDFIcebergBucket"));
